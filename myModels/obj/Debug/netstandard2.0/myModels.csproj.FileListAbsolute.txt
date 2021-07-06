@@ -1,0 +1,6 @@
+C:\Users\chedy\source\repos\Exadev\myModels\bin\Debug\netstandard2.0\myModels.deps.json
+C:\Users\chedy\source\repos\Exadev\myModels\bin\Debug\netstandard2.0\myModels.dll
+C:\Users\chedy\source\repos\Exadev\myModels\obj\Debug\netstandard2.0\myModels.csprojAssemblyReference.cache
+C:\Users\chedy\source\repos\Exadev\myModels\obj\Debug\netstandard2.0\myModels.csproj.CoreCompileInputs.cache
+C:\Users\chedy\source\repos\Exadev\myModels\obj\Debug\netstandard2.0\myModels.AssemblyInfoInputs.cache
+C:\Users\chedy\source\repos\Exadev\myModels\obj\Debug\netstandard2.0\myModels.AssemblyInfo.cs

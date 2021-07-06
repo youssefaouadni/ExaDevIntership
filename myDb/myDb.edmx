@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="myDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Chauffeurs">
+          <Key>
+            <PropertyRef Name="Id_chauf" />
+          </Key>
+          <Property Name="Id_chauf" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ref_chauf" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="nom_chauf" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="prenom" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="nj_repos" Type="int" Nullable="false" />
+          <Property Name="disponibilite_chauf" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Commandes">
+          <Key>
+            <PropertyRef Name="Id_comm" />
+          </Key>
+          <Property Name="Id_comm" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ref_comm" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="quantite" Type="int" Nullable="false" />
+          <Property Name="ref_mag" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="date_livraison" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Historique">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ref_com" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="nom_mag" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="adresse" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="region" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="date_com" Type="date" Nullable="false" />
+          <Property Name="ref_vehi" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="ref_chauf" Type="nchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="locations">
+          <Key>
+            <PropertyRef Name="Id_location" />
+          </Key>
+          <Property Name="Id_location" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ref_mag" Type="char" MaxLength="50" />
+          <Property Name="longitude" Type="float" />
+          <Property Name="latitude" Type="float" />
+          <Property Name="zoom" Type="float" />
+        </EntityType>
+        <EntityType Name="Magazines">
+          <Key>
+            <PropertyRef Name="Id_mag" />
+          </Key>
+          <Property Name="Id_mag" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ref_mag" Type="nchar" MaxLength="50" />
+          <Property Name="nom_mag" Type="nchar" MaxLength="50" />
+          <Property Name="adresse" Type="nchar" MaxLength="50" />
+          <Property Name="region" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom_societe" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="adresse" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="logo" Type="image" Nullable="false" />
+          <Property Name="tel" Type="nchar" MaxLength="15" Nullable="false" />
+          <Property Name="mail" Type="nchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vehicule">
+          <Key>
+            <PropertyRef Name="Id_vehi" />
+          </Key>
+          <Property Name="Id_vehi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ref_vehi" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="matricule" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="capacite" Type="int" Nullable="false" />
+          <Property Name="disponibilite" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="myDbModelStoreContainer">
+          <EntitySet Name="Chauffeurs" EntityType="Self.Chauffeurs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Commandes" EntityType="Self.Commandes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Historique" EntityType="Self.Historique" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="locations" EntityType="Self.locations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Magazines" EntityType="Self.Magazines" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Profile" EntityType="Self.Profile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vehicule" EntityType="Self.Vehicule" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="myDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="myDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Chauffeurs" EntityType="myDbModel.Chauffeur" />
+          <EntitySet Name="Commandes" EntityType="myDbModel.Commande" />
+          <EntitySet Name="Historiques" EntityType="myDbModel.Historique" />
+          <EntitySet Name="locations" EntityType="myDbModel.location" />
+          <EntitySet Name="Magazines" EntityType="myDbModel.Magazine" />
+          <EntitySet Name="Vehicules" EntityType="myDbModel.Vehicule" />
+          <EntitySet Name="Profiles" EntityType="myDbModel.Profile" />
+        </EntityContainer>
+        <EntityType Name="Chauffeur">
+          <Key>
+            <PropertyRef Name="Id_chauf" />
+          </Key>
+          <Property Name="Id_chauf" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ref_chauf" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="nom_chauf" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="prenom" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="nj_repos" Type="Int32" Nullable="false" />
+          <Property Name="disponibilite_chauf" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Commande">
+          <Key>
+            <PropertyRef Name="Id_comm" />
+          </Key>
+          <Property Name="Id_comm" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ref_comm" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="quantite" Type="Int32" Nullable="false" />
+          <Property Name="ref_mag" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="date_livraison" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Historique">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ref_com" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="nom_mag" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="adresse" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="region" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="date_com" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ref_vehi" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="ref_chauf" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="location">
+          <Key>
+            <PropertyRef Name="Id_location" />
+          </Key>
+          <Property Name="Id_location" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ref_mag" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="longitude" Type="Double" />
+          <Property Name="latitude" Type="Double" />
+          <Property Name="zoom" Type="Double" />
+        </EntityType>
+        <EntityType Name="Magazine">
+          <Key>
+            <PropertyRef Name="Id_mag" />
+          </Key>
+          <Property Name="Id_mag" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ref_mag" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="nom_mag" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="adresse" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="region" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Vehicule">
+          <Key>
+            <PropertyRef Name="Id_vehi" />
+          </Key>
+          <Property Name="Id_vehi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ref_vehi" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="matricule" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="capacite" Type="Int32" Nullable="false" />
+          <Property Name="disponibilite" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom_societe" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="adresse" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="logo" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="tel" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="mail" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="myDbModelStoreContainer" CdmEntityContainer="myDbEntities">
+          <EntitySetMapping Name="Chauffeurs">
+            <EntityTypeMapping TypeName="myDbModel.Chauffeur">
+              <MappingFragment StoreEntitySet="Chauffeurs">
+                <ScalarProperty Name="disponibilite_chauf" ColumnName="disponibilite_chauf" />
+                <ScalarProperty Name="nj_repos" ColumnName="nj_repos" />
+                <ScalarProperty Name="prenom" ColumnName="prenom" />
+                <ScalarProperty Name="nom_chauf" ColumnName="nom_chauf" />
+                <ScalarProperty Name="ref_chauf" ColumnName="ref_chauf" />
+                <ScalarProperty Name="Id_chauf" ColumnName="Id_chauf" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Commandes">
+            <EntityTypeMapping TypeName="myDbModel.Commande">
+              <MappingFragment StoreEntitySet="Commandes">
+                <ScalarProperty Name="date_livraison" ColumnName="date_livraison" />
+                <ScalarProperty Name="ref_mag" ColumnName="ref_mag" />
+                <ScalarProperty Name="quantite" ColumnName="quantite" />
+                <ScalarProperty Name="ref_comm" ColumnName="ref_comm" />
+                <ScalarProperty Name="Id_comm" ColumnName="Id_comm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Historiques">
+            <EntityTypeMapping TypeName="myDbModel.Historique">
+              <MappingFragment StoreEntitySet="Historique">
+                <ScalarProperty Name="ref_chauf" ColumnName="ref_chauf" />
+                <ScalarProperty Name="ref_vehi" ColumnName="ref_vehi" />
+                <ScalarProperty Name="date_com" ColumnName="date_com" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="region" ColumnName="region" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="nom_mag" ColumnName="nom_mag" />
+                <ScalarProperty Name="ref_com" ColumnName="ref_com" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="locations">
+            <EntityTypeMapping TypeName="myDbModel.location">
+              <MappingFragment StoreEntitySet="locations">
+                <ScalarProperty Name="zoom" ColumnName="zoom" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="ref_mag" ColumnName="ref_mag" />
+                <ScalarProperty Name="Id_location" ColumnName="Id_location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Magazines">
+            <EntityTypeMapping TypeName="myDbModel.Magazine">
+              <MappingFragment StoreEntitySet="Magazines">
+                <ScalarProperty Name="region" ColumnName="region" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="nom_mag" ColumnName="nom_mag" />
+                <ScalarProperty Name="ref_mag" ColumnName="ref_mag" />
+                <ScalarProperty Name="Id_mag" ColumnName="Id_mag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehicules">
+            <EntityTypeMapping TypeName="myDbModel.Vehicule">
+              <MappingFragment StoreEntitySet="Vehicule">
+                <ScalarProperty Name="disponibilite" ColumnName="disponibilite" />
+                <ScalarProperty Name="capacite" ColumnName="capacite" />
+                <ScalarProperty Name="matricule" ColumnName="matricule" />
+                <ScalarProperty Name="ref_vehi" ColumnName="ref_vehi" />
+                <ScalarProperty Name="Id_vehi" ColumnName="Id_vehi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profiles">
+            <EntityTypeMapping TypeName="myDbModel.Profile">
+              <MappingFragment StoreEntitySet="Profile">
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="logo" ColumnName="logo" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="nom_societe" ColumnName="nom_societe" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MyDbModelStoreContainer" CdmEntityContainer="myDbEntities">
+    <EntitySetMapping Name="Chauffeurs">
+      <EntityTypeMapping TypeName="MyDbModel.Chauffeur">
+        <MappingFragment StoreEntitySet="Chauffeurs">
+          <ScalarProperty Name="Id_chauf" ColumnName="Id_chauf" />
+          <ScalarProperty Name="ref_chauf" ColumnName="ref_chauf" />
+          <ScalarProperty Name="nom_chauf" ColumnName="nom_chauf" />
+          <ScalarProperty Name="prenom" ColumnName="prenom" />
+          <ScalarProperty Name="nj_repos" ColumnName="nj_repos" />
+          <ScalarProperty Name="disponibilite_chauf" ColumnName="disponibilite_chauf" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Commandes">
+      <EntityTypeMapping TypeName="MyDbModel.Commande">
+        <MappingFragment StoreEntitySet="Commandes">
+          <ScalarProperty Name="Id_comm" ColumnName="Id_comm" />
+          <ScalarProperty Name="ref_comm" ColumnName="ref_comm" />
+          <ScalarProperty Name="quantite" ColumnName="quantite" />
+          <ScalarProperty Name="id_mag" ColumnName="id_mag" />
+          <ScalarProperty Name="date_livraison" ColumnName="date_livraison" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Magazines">
+      <EntityTypeMapping TypeName="MyDbModel.Magazine">
+        <MappingFragment StoreEntitySet="Magazines">
+          <ScalarProperty Name="Id_mag" ColumnName="Id_mag" />
+          <ScalarProperty Name="ref_mag" ColumnName="ref_mag" />
+          <ScalarProperty Name="nom_mag" ColumnName="nom_mag" />
+          <ScalarProperty Name="adresse" ColumnName="adresse" />
+          <ScalarProperty Name="region" ColumnName="region" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehicules">
+      <EntityTypeMapping TypeName="MyDbModel.Vehicule">
+        <MappingFragment StoreEntitySet="Vehicule">
+          <ScalarProperty Name="disponibilite" ColumnName="disponibilite" />
+          <ScalarProperty Name="capacite" ColumnName="capacite" />
+          <ScalarProperty Name="matricule" ColumnName="matricule" />
+          <ScalarProperty Name="ref_vehi" ColumnName="ref_vehi" />
+          <ScalarProperty Name="Id_vehi" ColumnName="Id_vehi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="locations">
+      <EntityTypeMapping TypeName="MyDbModel.location">
+        <MappingFragment StoreEntitySet="locations">
+          <ScalarProperty Name="zoom" ColumnName="zoom" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="id_mag" ColumnName="id_mag" />
+          <ScalarProperty Name="Id_location" ColumnName="Id_location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

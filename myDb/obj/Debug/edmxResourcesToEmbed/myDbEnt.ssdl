@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Chauffeurs">
+    <Key>
+      <PropertyRef Name="Id_chauf" />
+    </Key>
+    <Property Name="Id_chauf" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ref_chauf" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="nom_chauf" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="prenom" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="nj_repos" Type="int" Nullable="false" />
+    <Property Name="disponibilite_chauf" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Commandes">
+    <Key>
+      <PropertyRef Name="Id_comm" />
+    </Key>
+    <Property Name="Id_comm" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ref_comm" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="quantite" Type="int" Nullable="false" />
+    <Property Name="id_mag" Type="int" />
+    <Property Name="date_livraison" Type="date" />
+  </EntityType>
+  <EntityType Name="locations">
+    <Key>
+      <PropertyRef Name="Id_location" />
+    </Key>
+    <Property Name="Id_location" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_mag" Type="nchar" MaxLength="10" />
+    <Property Name="longitude" Type="float" />
+    <Property Name="latitude" Type="float" />
+    <Property Name="zoom" Type="float" />
+  </EntityType>
+  <EntityType Name="Magazines">
+    <Key>
+      <PropertyRef Name="Id_mag" />
+    </Key>
+    <Property Name="Id_mag" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ref_mag" Type="nchar" MaxLength="50" />
+    <Property Name="nom_mag" Type="nchar" MaxLength="10" />
+    <Property Name="adresse" Type="nchar" MaxLength="50" />
+    <Property Name="region" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Vehicule">
+    <Key>
+      <PropertyRef Name="Id_vehi" />
+    </Key>
+    <Property Name="Id_vehi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ref_vehi" Type="char" MaxLength="25" Nullable="false" />
+    <Property Name="matricule" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="capacite" Type="int" Nullable="false" />
+    <Property Name="disponibilite" Type="bit" />
+  </EntityType>
+  <EntityContainer Name="MyDbModelStoreContainer">
+    <EntitySet Name="Chauffeurs" EntityType="Self.Chauffeurs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Commandes" EntityType="Self.Commandes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="locations" EntityType="Self.locations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Magazines" EntityType="Self.Magazines" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vehicule" EntityType="Self.Vehicule" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
